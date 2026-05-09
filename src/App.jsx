@@ -1,18 +1,18 @@
-import { useEffect, useState } from 'react'
-import './App.css'
+import { useEffect, useState } from "react";
+import "./App.css";
 
 const links = [
-  { label: 'linkedin', href: 'https://www.linkedin.com/', icon: 'linkedin' },
-  { label: 'email', href: 'mailto:hello@example.com', icon: 'email' },
-  { label: 'github', href: 'https://github.com/Qaaed', icon: 'github' },
-]
+  { label: "linkedin", href: "https://www.linkedin.com/", icon: "linkedin" },
+  { label: "email", href: "mailto:hello@example.com", icon: "email" },
+  { label: "github", href: "https://github.com/Qaaed", icon: "github" },
+];
 
 function GitHubIcon() {
   return (
     <svg aria-hidden="true" viewBox="0 0 24 24" className="link-icon">
       <path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.18-3.37-1.18a2.65 2.65 0 0 0-1.1-1.45c-.91-.62.06-.6.06-.6a2.1 2.1 0 0 1 1.53 1.02 2.13 2.13 0 0 0 2.9.83 2.13 2.13 0 0 1 .63-1.34c-2.22-.25-4.55-1.11-4.55-4.94a3.87 3.87 0 0 1 1.03-2.68 3.6 3.6 0 0 1 .1-2.64s.84-.27 2.75 1.02a9.48 9.48 0 0 1 5 0c1.9-1.29 2.74-1.02 2.74-1.02.55 1.37.2 2.38.1 2.64a3.86 3.86 0 0 1 1.03 2.68c0 3.84-2.34 4.68-4.56 4.93a2.39 2.39 0 0 1 .68 1.86v2.76c0 .26.18.58.69.48A10 10 0 0 0 12 2Z" />
     </svg>
-  )
+  );
 }
 
 function LinkedInIcon() {
@@ -22,7 +22,7 @@ function LinkedInIcon() {
       <path d="M6.6 3.8a1.85 1.85 0 1 1 0 3.7 1.85 1.85 0 0 1 0-3.7Z" />
       <path d="M10.2 8.5h3.05v1.43h.04a3.35 3.35 0 0 1 3.02-1.66c3.23 0 3.83 2.13 3.83 4.9V19h-3.18v-5.16c0-1.23-.02-2.82-1.72-2.82-1.72 0-1.98 1.34-1.98 2.73V19H10.2V8.5Z" />
     </svg>
-  )
+  );
 }
 
 function EmailIcon() {
@@ -31,7 +31,7 @@ function EmailIcon() {
       <path d="M4 6h16v12H4V6Z" />
       <path d="m4 7 8 6 8-6" />
     </svg>
-  )
+  );
 }
 
 function ArrowIcon() {
@@ -40,125 +40,138 @@ function ArrowIcon() {
       <path d="M7 17 17 7" />
       <path d="M9 7h8v8" />
     </svg>
-  )
+  );
 }
 
 const work = [
   {
-    year: '2026',
-    title: 'Portfolio Website',
-    detail: 'Personal site, React, responsive interface',
-    href: 'https://github.com/Qaaed/portfolio',
+    year: "2026",
+    title: "Portfolio Website",
+    detail: "Personal site, React, responsive interface",
+    href: "https://github.com/Qaaed/portfolio",
   },
   {
-    year: '2025',
-    title: 'Client Dashboard',
-    detail: 'Frontend dashboard for tracking projects and notes',
-    href: 'https://github.com/Qaaed/client-dashboard',
+    year: "2025",
+    title: "Client Dashboard",
+    detail: "Frontend dashboard for tracking projects and notes",
+    href: "https://github.com/Qaaed/client-dashboard",
   },
   {
-    year: '2025',
-    title: 'Notes App',
-    detail: 'Minimal notes interface with search and clean typography',
-    href: 'https://github.com/Qaaed/notes-app',
+    year: "2025",
+    title: "Notes App",
+    detail: "Minimal notes interface with search and clean typography",
+    href: "https://github.com/Qaaed/notes-app",
   },
   {
-    year: '2024',
-    title: 'Landing Page',
-    detail: 'Responsive marketing page with fast mobile loading',
-    href: 'https://github.com/Qaaed/landing-page',
+    year: "2024",
+    title: "Landing Page",
+    detail: "Responsive marketing page with fast mobile loading",
+    href: "https://github.com/Qaaed/landing-page",
   },
-]
+];
 
 const experience = [
   {
-    period: 'Jun 2026 - Present',
-    role: 'Software Engineering Intern',
-    company: 'WSO2',
-    companyUrl: 'https://wso2.com/',
-    detail: 'Starting June 1, 2026, contributing to software engineering work at WSO2.',
+    period: "Jun 2026 - Present",
+    role: "Software Engineering Intern",
+    company: "WSO2",
+    companyUrl: "https://wso2.com/",
+    detail:
+      "Starting June 1, 2026, contributing to software engineering work at WSO2.",
   },
-]
+];
 
 const techStack = [
   {
-    group: 'frontend',
+    group: "frontend",
     items: [
-      'React.js',
-      'Next.js',
-      'JavaScript',
-      'TypeScript',
-      'Streamlit',
-      'Tailwind CSS',
-      'CSS',
-      'HTML',
+      "React.js",
+      "Next.js",
+      "JavaScript",
+      "TypeScript",
+      "Streamlit",
+      "Tailwind CSS",
+      "CSS",
+      "HTML",
     ],
   },
   {
-    group: 'backend',
+    group: "backend",
     items: [
-      'Node.js',
-      'Express.js',
-      'Python',
-      'Java',
-      'FastAPI',
-      'SQLAlchemy',
-      'SQLite',
+      "Node.js",
+      "Express.js",
+      "Python",
+      "Java",
+      "FastAPI",
+      "SQLAlchemy",
+      "SQLite",
     ],
   },
   {
-    group: 'database & auth',
+    group: "database & auth",
     items: [
-      'Supabase',
-      'Firebase',
-      'MongoDB',
-      'MongoDB Atlas',
-      'MySQL',
-      'PostgreSQL',
-      'Neon Database',
-      'Asgardeo by WSO2',
+      "Supabase",
+      "Firebase",
+      "MongoDB",
+      "MongoDB Atlas",
+      "MySQL",
+      "PostgreSQL",
+      "Neon Database",
+      "Asgardeo by WSO2",
     ],
   },
   {
-    group: 'platform & tools',
+    group: "platform & tools",
     items: [
-      'Git',
-      'GitHub',
-      'CI/CD Pipelines',
-      'Netlify',
-      'Vercel',
-      'Hugging Face',
-      'Choreo',
-      'WSO2 API Manager',
+      "Git",
+      "GitHub",
+      "CI/CD Pipelines",
+      "Netlify",
+      "Vercel",
+      "Hugging Face",
+      "Choreo",
+      "WSO2 API Manager",
     ],
   },
-]
+];
+
+const highlightedTech = new Set([
+  "React.js",
+  "FastAPI",
+  "Python",
+  "JavaScript",
+  "PostgreSQL",
+  "Supabase",
+  "Git",
+  "GitHub",
+  "Vercel",
+]);
 
 function App() {
   const [theme, setTheme] = useState(() => {
-    const savedTheme = localStorage.getItem('theme')
+    const savedTheme = localStorage.getItem("theme");
 
     if (savedTheme) {
-      return savedTheme
+      return savedTheme;
     }
 
-    return window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? 'black'
-      : 'white'
-  })
+    return window.matchMedia("(prefers-color-scheme: dark)").matches
+      ? "black"
+      : "white";
+  });
 
   useEffect(() => {
-    document.documentElement.dataset.theme = theme
-    localStorage.setItem('theme', theme)
-  }, [theme])
+    document.documentElement.dataset.theme = theme;
+    localStorage.setItem("theme", theme);
+  }, [theme]);
 
-  const nextTheme = theme === 'black' ? 'white' : 'black'
+  const nextTheme = theme === "black" ? "white" : "black";
 
   return (
     <main className="site">
       <header className="topbar" aria-label="Site header">
         <a href="#home" className="wordmark">
-          your name
+          Qaaed Usaim
         </a>
         <div className="header-actions">
           <nav className="nav" aria-label="Main navigation">
@@ -173,7 +186,7 @@ function App() {
             onClick={() => setTheme(nextTheme)}
             aria-label={`Switch to ${nextTheme} mode`}
           >
-            {theme === 'black' ? (
+            {theme === "black" ? (
               <svg
                 aria-hidden="true"
                 viewBox="0 0 24 24"
@@ -203,14 +216,14 @@ function App() {
       </header>
 
       <section className="hero" id="home">
-        <p className="muted">frontend developer based in Sri Lanka</p>
+        <p className="muted">software engineering loser based in sri lanka</p>
         <h1>
-          I build quiet, minimal websites with careful layout and simple
-          interactions.
+          I like to build stuff,code,play sports and also play video games.
         </h1>
         <p className="summary">
-          Currently focused on React, clean UI systems, and responsive web
-          experiences that feel easy to read and easy to use.
+          I lowkey (highkey?) just like to build and help people build their
+          projects apart from that idk what else I do. Oh I also try to
+          contribute to open source, I normally become active in the night.
         </p>
       </section>
 
@@ -277,7 +290,14 @@ function App() {
               <h3>{stack.group}</h3>
               <ul>
                 {stack.items.map((item) => (
-                  <li key={item}>{item}</li>
+                  <li
+                    className={
+                      highlightedTech.has(item) ? "is-highlighted" : undefined
+                    }
+                    key={item}
+                  >
+                    {item}
+                  </li>
                 ))}
               </ul>
             </div>
@@ -299,16 +319,16 @@ function App() {
               target="_blank"
               rel="noreferrer"
             >
-              {link.icon === 'linkedin' && <LinkedInIcon />}
-              {link.icon === 'email' && <EmailIcon />}
-              {link.icon === 'github' && <GitHubIcon />}
+              {link.icon === "linkedin" && <LinkedInIcon />}
+              {link.icon === "email" && <EmailIcon />}
+              {link.icon === "github" && <GitHubIcon />}
               {link.label}
             </a>
           ))}
         </div>
       </section>
     </main>
-  )
+  );
 }
 
-export default App
+export default App;
