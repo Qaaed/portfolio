@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import "./App.css";
 
 const links = [
@@ -152,6 +152,7 @@ const highlightedTech = new Set([
 ]);
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
   const [theme, setTheme] = useState(() => {
     const savedTheme = localStorage.getItem("theme");
 
@@ -169,65 +170,103 @@ function App() {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
+  useLayoutEffect(() => {
+    if ("scrollRestoration" in window.history) {
+      window.history.scrollRestoration = "manual";
+    }
+
+    if (window.location.hash) {
+      window.history.replaceState(
+        null,
+        "",
+        `${window.location.pathname}${window.location.search}`,
+      );
+    }
+
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
+    const timer = window.setTimeout(() => {
+      window.scrollTo(0, 0);
+      setIsLoading(false);
+    }, 1300);
+
+    return () => window.clearTimeout(timer);
+  }, []);
+
   const nextTheme = theme === "black" ? "white" : "black";
 
   return (
-    <main className="site">
-      <header className="topbar" aria-label="Site header">
-        <a href="#home" className="wordmark">
-          Qaaed Usaim
-        </a>
-        <div className="header-actions">
-          <nav className="nav" aria-label="Main navigation">
-            <a href="#work">work</a>
-            <a href="#experience">experience</a>
-            <a href="#tech-stack">stack</a>
-            <a href="#contact">contact</a>
-          </nav>
-          <button
-            className="theme-toggle"
-            type="button"
-            onClick={() => setTheme(nextTheme)}
-            aria-label={`Switch to ${nextTheme} mode`}
-          >
-            {theme === "black" ? (
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                className="theme-icon"
-              >
-                <circle cx="12" cy="12" r="4" />
-                <path d="M12 2v2" />
-                <path d="M12 20v2" />
-                <path d="m4.93 4.93 1.41 1.41" />
-                <path d="m17.66 17.66 1.41 1.41" />
-                <path d="M2 12h2" />
-                <path d="M20 12h2" />
-                <path d="m6.34 17.66-1.41 1.41" />
-                <path d="m19.07 4.93-1.41 1.41" />
-              </svg>
-            ) : (
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                className="theme-icon"
-              >
-                <path d="M20.5 14.4A7.2 7.2 0 0 1 9.6 3.5 8.7 8.7 0 1 0 20.5 14.4Z" />
-              </svg>
-            )}
-          </button>
+    <>
+      <div
+        className={`loader${isLoading ? "" : " is-hidden"}`}
+        aria-hidden={!isLoading}
+      >
+        <div className="loader-mark" role="status" aria-live="polite">
+          <span>Qaaed Usaim</span>
+          <div className="loader-track">
+            <span />
+          </div>
         </div>
-      </header>
+      </div>
 
-      <section className="hero" id="home">
-        <p className="muted">software engineer based in sri lanka</p>
-        <h1>one prompt a day keeps the unemployment away</h1>
-        <p className="summary">
-          I like to build projects which help me personally and sound cool,
-          alongside that i've recently started trying to contribute to open
-          source projects.
-        </p>
-      </section>
+      <main className="site">
+        <header className="topbar" aria-label="Site header">
+          <a href="#home" className="wordmark">
+            Qaaed Usaim
+          </a>
+          <div className="header-actions">
+            <nav className="nav" aria-label="Main navigation">
+              <a href="#work">work</a>
+              <a href="#experience">experience</a>
+              <a href="#tech-stack">stack</a>
+              <a href="#contact">contact</a>
+            </nav>
+            <button
+              className="theme-toggle"
+              type="button"
+              onClick={() => setTheme(nextTheme)}
+              aria-label={`Switch to ${nextTheme} mode`}
+            >
+              {theme === "black" ? (
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  className="theme-icon"
+                >
+                  <circle cx="12" cy="12" r="4" />
+                  <path d="M12 2v2" />
+                  <path d="M12 20v2" />
+                  <path d="m4.93 4.93 1.41 1.41" />
+                  <path d="m17.66 17.66 1.41 1.41" />
+                  <path d="M2 12h2" />
+                  <path d="M20 12h2" />
+                  <path d="m6.34 17.66-1.41 1.41" />
+                  <path d="m19.07 4.93-1.41 1.41" />
+                </svg>
+              ) : (
+                <svg
+                  aria-hidden="true"
+                  viewBox="0 0 24 24"
+                  className="theme-icon"
+                >
+                  <path d="M20.5 14.4A7.2 7.2 0 0 1 9.6 3.5 8.7 8.7 0 1 0 20.5 14.4Z" />
+                </svg>
+              )}
+            </button>
+          </div>
+        </header>
+
+        <section className="hero" id="home">
+          <p className="muted">software engineer based in sri lanka</p>
+          <h1>one prompt a day keeps the unemployment away</h1>
+          <p className="summary">
+            I like to build projects which help me personally and sound cool,
+            alongside that i've recently started trying to contribute to open
+            source projects.
+          </p>
+        </section>
 
       <section className="section" id="work" aria-labelledby="work-heading">
         <h2 id="work-heading">selected work</h2>
@@ -307,29 +346,30 @@ function App() {
         </div>
       </section>
 
-      <section
-        className="section contact"
-        id="contact"
-        aria-labelledby="contact-heading"
-      >
-        <h2 id="contact-heading">contact</h2>
-        <div className="links">
-          {links.map((link) => (
-            <a
-              href={link.href}
-              key={link.label}
-              target="_blank"
-              rel="noreferrer"
-            >
-              {link.icon === "linkedin" && <LinkedInIcon />}
-              {link.icon === "email" && <EmailIcon />}
-              {link.icon === "github" && <GitHubIcon />}
-              {link.label}
-            </a>
-          ))}
-        </div>
-      </section>
-    </main>
+        <section
+          className="section contact"
+          id="contact"
+          aria-labelledby="contact-heading"
+        >
+          <h2 id="contact-heading">contact</h2>
+          <div className="links">
+            {links.map((link) => (
+              <a
+                href={link.href}
+                key={link.label}
+                target="_blank"
+                rel="noreferrer"
+              >
+                {link.icon === "linkedin" && <LinkedInIcon />}
+                {link.icon === "email" && <EmailIcon />}
+                {link.icon === "github" && <GitHubIcon />}
+                {link.label}
+              </a>
+            ))}
+          </div>
+        </section>
+      </main>
+    </>
   );
 }
 
