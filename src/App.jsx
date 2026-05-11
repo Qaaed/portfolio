@@ -2,8 +2,12 @@ import { useEffect, useState } from "react";
 import "./App.css";
 
 const links = [
-  { label: "linkedin", href: "https://www.linkedin.com/", icon: "linkedin" },
-  { label: "email", href: "mailto:hello@example.com", icon: "email" },
+  {
+    label: "linkedin",
+    href: "https://www.linkedin.com/in/qaaedusaim/",
+    icon: "linkedin",
+  },
+  { label: "email", href: "mailto:mohamedqxxed@gmail.com", icon: "email" },
   { label: "github", href: "https://github.com/Qaaed", icon: "github" },
 ];
 
@@ -46,27 +50,29 @@ function ArrowIcon() {
 const work = [
   {
     year: "2026",
-    title: "Portfolio Website",
-    detail: "Personal site, React, responsive interface",
-    href: "https://github.com/Qaaed/portfolio",
+    title: "keystroke latency tracker",
+    detail: "calculates flight time and dwell time between each keyboard click",
+    href: "https://github.com/Qaaed/keystroke-latency-diagnostics",
   },
   {
     year: "2025",
-    title: "Client Dashboard",
-    detail: "Frontend dashboard for tracking projects and notes",
-    href: "https://github.com/Qaaed/client-dashboard",
+    title: "cloudshare rest api",
+    detail:
+      "asynchronous REST API and Streamlit frontend for cloud media sharing. ",
+    href: "https://github.com/Qaaed/CloudShare-REST-API",
   },
   {
     year: "2025",
-    title: "Notes App",
-    detail: "Minimal notes interface with search and clean typography",
-    href: "https://github.com/Qaaed/notes-app",
+    title: "aphasia simulation",
+    detail:
+      "aphasia simulation to simulate broca's and wernicke's aphasia for a project",
+    href: "https://github.com/Qaaed/patient_aphasia_simulation",
   },
   {
-    year: "2024",
-    title: "Landing Page",
-    detail: "Responsive marketing page with fast mobile loading",
-    href: "https://github.com/Qaaed/landing-page",
+    year: "2026",
+    title: "football stats",
+    detail: "live football match statistics data pipeline",
+    href: "https://github.com/Qaaed/choreo-football-proxy",
   },
 ];
 
@@ -138,8 +144,6 @@ const techStack = [
 const highlightedTech = new Set([
   "React.js",
   "FastAPI",
-  "Python",
-  "JavaScript",
   "PostgreSQL",
   "Supabase",
   "Git",
@@ -216,14 +220,12 @@ function App() {
       </header>
 
       <section className="hero" id="home">
-        <p className="muted">software engineering loser based in sri lanka</p>
-        <h1>
-          I like to build stuff,code,play sports and also play video games.
-        </h1>
+        <p className="muted">software engineer based in sri lanka</p>
+        <h1>one prompt a day keeps the unemployment away</h1>
         <p className="summary">
-          I lowkey (highkey?) just like to build and help people build their
-          projects apart from that idk what else I do. Oh I also try to
-          contribute to open source, I normally become active in the night.
+          I like to build projects which help me personally and sound cool,
+          alongside that i've recently started trying to contribute to open
+          source projects.
         </p>
       </section>
 
@@ -279,7 +281,7 @@ function App() {
       </section>
 
       <section
-        className="section"
+        className="section stack-section"
         id="tech-stack"
         aria-labelledby="tech-stack-heading"
       >
