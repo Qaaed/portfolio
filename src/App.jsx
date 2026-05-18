@@ -79,11 +79,19 @@ const work = [
 const experience = [
   {
     period: "Jun 2026 - Present",
-    role: "Software Engineering Intern",
+    role: "engineering intern",
     company: "WSO2",
     companyUrl: "https://wso2.com/",
     detail:
       "Starting June 1, 2026, contributing to software engineering work at WSO2.",
+  },
+  {
+    period: "Sep 2025 - Present",
+    role: "lead software developer",
+    company: "Aqtasy Robotics",
+    companyUrl: "https://aqtasyrobotics.com/",
+    detail:
+      "Hult Prize national finalist project, built the full stack web application and FastAPI pipeline.",
   },
 ];
 
@@ -123,6 +131,7 @@ const techStack = [
       "MySQL",
       "PostgreSQL",
       "Neon Database",
+      "Neon Auth",
       "Asgardeo by WSO2",
     ],
   },
@@ -131,6 +140,7 @@ const techStack = [
     items: [
       "Git",
       "GitHub",
+      "Docker",
       "CI/CD Pipelines",
       "Netlify",
       "Vercel",
@@ -268,83 +278,105 @@ function App() {
           </p>
         </section>
 
-      <section className="section" id="work" aria-labelledby="work-heading">
-        <h2 id="work-heading">selected work</h2>
-        <div className="work-list">
-          {work.map((item) => (
-            <a
-              className="work-item"
-              href={item.href}
-              key={item.title}
-              target="_blank"
-              rel="noreferrer"
-            >
-              <span>{item.year}</span>
-              <div>
-                <h3>{item.title}</h3>
-                <p>{item.detail}</p>
-              </div>
-              <ArrowIcon />
-            </a>
-          ))}
-        </div>
-      </section>
+        <section className="section" id="work" aria-labelledby="work-heading">
+          <h2 id="work-heading">selected work</h2>
+          <div className="work-list">
+            {work.map((item) => (
+              <a
+                className="work-item"
+                href={item.href}
+                key={item.title}
+                target="_blank"
+                rel="noreferrer"
+              >
+                <span>{item.year}</span>
+                <div>
+                  <h3>{item.title}</h3>
+                  <p>{item.detail}</p>
+                </div>
+                <ArrowIcon />
+              </a>
+            ))}
+          </div>
+        </section>
 
-      <section
-        className="section"
-        id="experience"
-        aria-labelledby="experience-heading"
-      >
-        <h2 id="experience-heading">experience</h2>
-        <div className="experience-list">
-          {experience.map((item) => (
-            <article
-              className="experience-item"
-              key={`${item.role}-${item.company}`}
-            >
-              <span>{item.period}</span>
-              <div>
-                <h3>
-                  {item.role}
-                  <small>
-                    <a href={item.companyUrl} target="_blank" rel="noreferrer">
-                      {item.company}
-                    </a>
-                  </small>
-                </h3>
-                <p>{item.detail}</p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
+        <section
+          className="section"
+          id="experience"
+          aria-labelledby="experience-heading"
+        >
+          <h2 id="experience-heading">experience</h2>
+          <div className="experience-list">
+            {experience.map((item) => (
+              <article
+                className="experience-item"
+                key={`${item.role}-${item.company}`}
+              >
+                <span>{item.period}</span>
+                <div>
+                  <h3>
+                    {item.role}
+                    <small>
+                      {item.companyUrl ? (
+                        <a
+                          href={item.companyUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          {item.company}
+                        </a>
+                      ) : (
+                        item.company
+                      )}
+                    </small>
+                  </h3>
+                  <p>
+                    {item.detail}
+                    {item.projectUrl && (
+                      <>
+                        {" "}
+                        <a
+                          href={item.projectUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                        >
+                          GitHub repo
+                        </a>
+                      </>
+                    )}
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
 
-      <section
-        className="section stack-section"
-        id="tech-stack"
-        aria-labelledby="tech-stack-heading"
-      >
-        <h2 id="tech-stack-heading">tech stack</h2>
-        <div className="stack-groups" aria-label="Technologies">
-          {techStack.map((stack) => (
-            <div className="stack-group" key={stack.group}>
-              <h3>{stack.group}</h3>
-              <ul>
-                {stack.items.map((item) => (
-                  <li
-                    className={
-                      highlightedTech.has(item) ? "is-highlighted" : undefined
-                    }
-                    key={item}
-                  >
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
-        </div>
-      </section>
+        <section
+          className="section stack-section"
+          id="tech-stack"
+          aria-labelledby="tech-stack-heading"
+        >
+          <h2 id="tech-stack-heading">tech stack</h2>
+          <div className="stack-groups" aria-label="Technologies">
+            {techStack.map((stack) => (
+              <div className="stack-group" key={stack.group}>
+                <h3>{stack.group}</h3>
+                <ul>
+                  {stack.items.map((item) => (
+                    <li
+                      className={
+                        highlightedTech.has(item) ? "is-highlighted" : undefined
+                      }
+                      key={item}
+                    >
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+        </section>
 
         <section
           className="section contact"
