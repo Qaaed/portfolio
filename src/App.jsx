@@ -49,27 +49,23 @@ function ArrowIcon() {
 
 const work = [
   {
-    year: "2026",
     title: "keystroke latency tracker",
     detail: "calculates flight time and dwell time between each keyboard click",
     href: "https://github.com/Qaaed/keystroke-latency-diagnostics",
   },
   {
-    year: "2025",
     title: "cloudshare rest api",
     detail:
       "asynchronous REST API and Streamlit frontend for cloud media sharing. ",
     href: "https://github.com/Qaaed/CloudShare-REST-API",
   },
   {
-    year: "2025",
     title: "aphasia simulation",
     detail:
       "aphasia simulation to simulate broca's and wernicke's aphasia for a project",
     href: "https://github.com/Qaaed/patient_aphasia_simulation",
   },
   {
-    year: "2026",
     title: "football stats",
     detail: "live football match statistics data pipeline",
     href: "https://github.com/Qaaed/choreo-football-proxy",
@@ -79,87 +75,64 @@ const work = [
 const experience = [
   {
     period: "Jun 2026 - Present",
-    role: "engineering intern",
+    role: "software engineering intern",
     company: "WSO2",
     companyUrl: "https://wso2.com/",
-    detail:
-      "Starting June 1, 2026, contributing to software engineering work at WSO2.",
+    details: ["contributing to open source projects."],
   },
   {
     period: "Sep 2025 - Present",
     role: "lead software developer",
     company: "Aqtasy Robotics",
     companyUrl: "https://aqtasyrobotics.com/",
-    detail:
-      "Hult Prize national finalist project, built the full stack web application and FastAPI pipeline.",
+    details: [
+      "hult prize nationals finalist project",
+      "built the full stack app with React and Tailwind CSS",
+      "contributed to the FastAPI pipeline",
+      "built the auth and database storage flow with Supabase",
+      "set up the CI/CD deployment pipeline with github actions",
+    ],
   },
 ];
 
 const techStack = [
   {
-    group: "frontend",
-    items: [
-      "React.js",
-      "Next.js",
-      "JavaScript",
-      "TypeScript",
-      "Streamlit",
-      "Tailwind CSS",
-      "CSS",
-      "HTML",
-    ],
+    group: "Languages",
+    items: ["python", "java", "html", "css", "javascript", "sql"],
   },
   {
-    group: "backend",
+    group: "Frameworks & Libraries",
     items: [
-      "Node.js",
-      "Express.js",
-      "Python",
-      "Java",
-      "FastAPI",
+      "react",
+      "node.js",
+      "express.js",
+      "fastAPI",
       "SQLAlchemy",
-      "SQLite",
+      "tailwind CSS",
     ],
   },
   {
-    group: "database & auth",
-    items: [
-      "Supabase",
-      "Firebase",
-      "MongoDB",
-      "MongoDB Atlas",
-      "MySQL",
-      "PostgreSQL",
-      "Neon Database",
-      "Neon Auth",
-      "Asgardeo by WSO2",
-    ],
+    group: "Backend & APIs",
+    items: ["REST APIs", "JWT", "OAuth2", "OIDC"],
   },
   {
-    group: "platform & tools",
+    group: "Databases & Cloud",
+    items: ["postgreSQL", "SQLite", "mongoDB", "firebase", "supabase", "neon"],
+  },
+  {
+    group: "DevOps & Tools",
     items: [
-      "Git",
-      "GitHub",
-      "Docker",
-      "CI/CD Pipelines",
-      "Netlify",
-      "Vercel",
-      "Hugging Face",
-      "Choreo",
-      "WSO2 API Manager",
+      "docker",
+      "git & github",
+      "GitHub Actions",
+      "postman",
+      "vercel",
+      "netlify",
+      "choreo",
+      "hugging Face",
     ],
   },
 ];
-
-const highlightedTech = new Set([
-  "React.js",
-  "FastAPI",
-  "PostgreSQL",
-  "Supabase",
-  "Git",
-  "GitHub",
-  "Vercel",
-]);
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -170,9 +143,7 @@ function App() {
       return savedTheme;
     }
 
-    return window.matchMedia("(prefers-color-scheme: dark)").matches
-      ? "black"
-      : "white";
+    return "black";
   });
 
   useEffect(() => {
@@ -279,7 +250,7 @@ function App() {
         </section>
 
         <section className="section" id="work" aria-labelledby="work-heading">
-          <h2 id="work-heading">selected work</h2>
+          <h2 id="work-heading">side projects</h2>
           <div className="work-list">
             {work.map((item) => (
               <a
@@ -289,7 +260,6 @@ function App() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <span>{item.year}</span>
                 <div>
                   <h3>{item.title}</h3>
                   <p>{item.detail}</p>
@@ -330,11 +300,12 @@ function App() {
                       )}
                     </small>
                   </h3>
-                  <p>
-                    {item.detail}
+                  <ul className="experience-details">
+                    {item.details.map((detail) => (
+                      <li key={detail}>{detail}</li>
+                    ))}
                     {item.projectUrl && (
-                      <>
-                        {" "}
+                      <li>
                         <a
                           href={item.projectUrl}
                           target="_blank"
@@ -342,9 +313,9 @@ function App() {
                         >
                           GitHub repo
                         </a>
-                      </>
+                      </li>
                     )}
-                  </p>
+                  </ul>
                 </div>
               </article>
             ))}
@@ -356,20 +327,20 @@ function App() {
           id="tech-stack"
           aria-labelledby="tech-stack-heading"
         >
-          <h2 id="tech-stack-heading">tech stack</h2>
-          <div className="stack-groups" aria-label="Technologies">
+          <h2 id="tech-stack-heading">technologies i'm good at </h2>
+          <div className="skill-matrix" aria-label="Technologies">
             {techStack.map((stack) => (
-              <div className="stack-group" key={stack.group}>
+              <div className="skill-row" key={stack.group}>
                 <h3>{stack.group}</h3>
-                <ul>
-                  {stack.items.map((item) => (
-                    <li
-                      className={
-                        highlightedTech.has(item) ? "is-highlighted" : undefined
-                      }
-                      key={item}
-                    >
-                      {item}
+                <ul className="skill-list">
+                  {stack.items.map((item, index) => (
+                    <li key={item}>
+                      <span>{item}</span>
+                      {index < stack.items.length - 1 && (
+                        <span className="skill-separator" aria-hidden="true">
+                          /
+                        </span>
+                      )}
                     </li>
                   ))}
                 </ul>
