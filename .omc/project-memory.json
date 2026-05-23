@@ -128,8 +128,8 @@
     },
     {
       "path": "src\\App.jsx",
-      "accessCount": 11,
-      "lastAccessed": 1779525150592,
+      "accessCount": 12,
+      "lastAccessed": 1779525476703,
       "type": "file"
     },
     {
@@ -137,6 +137,12 @@
       "accessCount": 8,
       "lastAccessed": 1779525310366,
       "type": "file"
+    },
+    {
+      "path": "",
+      "accessCount": 2,
+      "lastAccessed": 1779525491392,
+      "type": "directory"
     },
     {
       "path": "package.json",
