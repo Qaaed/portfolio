@@ -1,9 +1,9 @@
 :root {
-  --bg: #d8d8d2;
-  --text: #111111;
-  --muted: #6d6d6d;
-  --faint: #a8a8a8;
-  --border: #c2c2ba;
+  --bg: #f8f8f6;
+  --text: #0f0f0f;
+  --muted: #727272;
+  --faint: #b0b0a8;
+  --border: #e5e5e0;
   --sans:
     Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
     sans-serif;

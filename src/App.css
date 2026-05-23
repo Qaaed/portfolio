@@ -134,7 +134,7 @@
 
 .hero {
   max-width: 700px;
-  padding-bottom: 124px;
+  padding-bottom: 148px;
 }
 
 .muted {
@@ -144,10 +144,10 @@
 }
 
 .summary {
-  max-width: 560px;
+  max-width: 520px;
   margin-top: 28px;
   color: var(--muted);
-  font-size: 18px;
+  font-size: 17px;
   line-height: 1.65;
 }
 
@@ -160,14 +160,19 @@
 }
 
 .section h2 {
-  color: var(--muted);
-  font-size: 14px;
-  font-weight: 400;
+  color: var(--faint);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
   line-height: 1.5;
-  text-transform: lowercase;
+  text-transform: uppercase;
 }
 
-.work-list,
+.work-list {
+  display: grid;
+  gap: 0;
+}
+
 .experience-list {
   display: grid;
   gap: 28px;
@@ -181,15 +186,29 @@
 }
 
 .work-item {
-  grid-template-columns: minmax(0, 1fr) 18px;
+  grid-template-columns: 28px minmax(0, 1fr) 18px;
+  padding: 14px 8px;
+  margin: 0 -8px;
+  border-radius: 4px;
   text-decoration: none;
+  transition: background 160ms ease;
+}
+
+.work-item + .work-item {
+  border-top: 1px solid var(--border);
+}
+
+.work-index {
+  color: var(--faint);
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+  padding-top: 3px;
 }
 
 .experience-item {
   grid-template-columns: 82px minmax(0, 1fr);
 }
 
-.work-item span,
 .experience-item span {
   color: var(--faint);
   font-size: 14px;
@@ -222,6 +241,11 @@
 .experience-item small a:hover,
 .experience-item small a:focus-visible {
   text-decoration-color: var(--text);
+}
+
+.work-item:hover,
+.work-item:focus-visible {
+  background: color-mix(in srgb, var(--text) 4%, transparent);
 }
 
 .work-item:hover h3,
@@ -497,8 +521,12 @@
   }
 
   .work-item {
-    grid-template-columns: minmax(0, 1fr) 16px;
+    grid-template-columns: 24px minmax(0, 1fr) 16px;
     gap: 14px;
+  }
+
+  .work-index {
+    font-size: 10px;
   }
 
   .experience-item {

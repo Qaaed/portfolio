@@ -49,25 +49,38 @@ function ArrowIcon() {
 
 const work = [
   {
+    index: "01",
     title: "keystroke latency tracker",
-    detail: "calculates flight time and dwell time between each keyboard click",
+    detail:
+      "Diagnostic tool that measures flight time and dwell time between keystrokes to profile typing dynamics and latency.",
     href: "https://github.com/Qaaed/keystroke-latency-diagnostics",
   },
   {
+    index: "02",
+    title: "aphasia therapy assistant",
+    detail:
+      "AI-powered speech therapy assistant for aphasia patients, built with the Aqtasy Robotics team for the Hult Prize competition.",
+    href: "https://github.com/Aqtasy-Robotics/Aphasia_Therapy_Assistant",
+  },
+  {
+    index: "03",
     title: "cloudshare rest api",
     detail:
-      "asynchronous REST API and Streamlit frontend for cloud media sharing. ",
+      "Async REST API and Streamlit frontend for uploading and sharing media files in the cloud.",
     href: "https://github.com/Qaaed/CloudShare-REST-API",
   },
   {
+    index: "04",
     title: "aphasia simulation",
     detail:
-      "aphasia simulation to simulate broca's and wernicke's aphasia for a project",
+      "Simulates Broca's and Wernicke's aphasia patterns to model speech impairment for research and clinical training.",
     href: "https://github.com/Qaaed/patient_aphasia_simulation",
   },
   {
+    index: "05",
     title: "football stats",
-    detail: "live football match statistics data pipeline",
+    detail:
+      "Real-time data pipeline that proxies live football match statistics for consumption and analysis.",
     href: "https://github.com/Qaaed/choreo-football-proxy",
   },
 ];
@@ -250,7 +263,7 @@ function App() {
         </section>
 
         <section className="section" id="work" aria-labelledby="work-heading">
-          <h2 id="work-heading">side projects</h2>
+          <h2 id="work-heading">projects</h2>
           <div className="work-list">
             {work.map((item) => (
               <a
@@ -260,7 +273,8 @@ function App() {
                 target="_blank"
                 rel="noreferrer"
               >
-                <div>
+                <span className="work-index">{item.index}</span>
+                <div className="work-body">
                   <h3>{item.title}</h3>
                   <p>{item.detail}</p>
                 </div>
