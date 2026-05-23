@@ -122,20 +122,20 @@
   "hotPaths": [
     {
       "path": "src\\App.css",
-      "accessCount": 10,
-      "lastAccessed": 1779523975816,
+      "accessCount": 13,
+      "lastAccessed": 1779525062982,
       "type": "file"
     },
     {
       "path": "src\\App.jsx",
-      "accessCount": 4,
-      "lastAccessed": 1779523911069,
+      "accessCount": 11,
+      "lastAccessed": 1779525150592,
       "type": "file"
     },
     {
       "path": "src\\index.css",
-      "accessCount": 3,
-      "lastAccessed": 1779523903668,
+      "accessCount": 8,
+      "lastAccessed": 1779525310366,
       "type": "file"
     },
     {

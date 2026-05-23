@@ -47,6 +47,16 @@ function ArrowIcon() {
   );
 }
 
+function DownloadIcon() {
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" className="download-icon">
+      <path d="M12 3v13" />
+      <path d="m8 12 4 4 4-4" />
+      <path d="M4 20h16" />
+    </svg>
+  );
+}
+
 const work = [
   {
     index: "01",
@@ -59,7 +69,7 @@ const work = [
     index: "02",
     title: "aphasia therapy assistant",
     detail:
-      "AI-powered speech therapy assistant for aphasia patients, built with the Aqtasy Robotics team for the Hult Prize competition.",
+      "Contributed to the development of an AI-powered speech therapy assistant robot for aphasia patients, built with the Aqtasy Robotics team.",
     href: "https://github.com/Aqtasy-Robotics/Aphasia_Therapy_Assistant",
   },
   {
@@ -156,7 +166,7 @@ function App() {
       return savedTheme;
     }
 
-    return "black";
+    return "beige";
   });
 
   useEffect(() => {
@@ -189,7 +199,7 @@ function App() {
     return () => window.clearTimeout(timer);
   }, []);
 
-  const nextTheme = theme === "black" ? "white" : "black";
+  const nextTheme = theme === "black" ? "beige" : "black";
 
   return (
     <>
@@ -260,6 +270,10 @@ function App() {
             alongside that i've recently started trying to contribute to open
             source projects.
           </p>
+          <a href="/assets/cv.pdf" download className="cv-link">
+            <DownloadIcon />
+            download cv
+          </a>
         </section>
 
         <section className="section" id="work" aria-labelledby="work-heading">
